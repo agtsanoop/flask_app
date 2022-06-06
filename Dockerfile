@@ -1,8 +1,8 @@
 FROM alpine:3.8
 
 
-ENV FLASK_PATH = /var/flaskapp
-ENV FLASK_USER = flaskapp
+ENV FLASK_PATH /var/flaskapp
+ENV FLASK_USER flaskapp
 
 
 RUN mkdir $FLASK_PATH
