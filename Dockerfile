@@ -4,7 +4,7 @@ ENV FLASK_PATH /var/flaskapp
 
 ENV FLASK_USER flaskuser
 
-RUN mkdir $FLASK_PATH
+RUN mkdir -d $FLASK_PATH
 
 RUN adduser -h $FLASK_PATH -s /bin/sh -D $FLASK_USER
 
