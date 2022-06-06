@@ -4,13 +4,11 @@ ENV FLASK_PATH /var/flaskapp
 
 ENV FLASK_USER flaskuser
 
-RUN mkdir -d $FLASK_PATH
+RUN adduser  -h $FLASK_PATH -s /bin/sh -D  $FLASK_USER
 
-RUN adduser -h $FLASK_PATH -s /bin/sh -D $FLASK_USER
+WORKDIR  $FLASK_PATH
 
-WORKDIR $FLASK_PATH
-
-COPY .  .
+COPY  .  .
 
 RUN chown -R $FLASK_USER:$FLASK_USER $FLASK_PATH
 
@@ -21,6 +19,7 @@ RUN pip3 install -r requirements.txt
 USER $FLASK_USER
 
 EXPOSE 5000
+
 
 CMD ["app.py"]
 
